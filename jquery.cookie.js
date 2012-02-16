@@ -12,7 +12,7 @@
 
     // key and at least value given, set cookie...
     if (arguments.length && (!/Object/.test(Object.prototype.toString.call(value)) || value === nil || value === undefined)) {
-      options = $.extend({}, options);
+      options = options || {};
 
       if (value === nil || value === undefined) {
         options.expires = -1;
