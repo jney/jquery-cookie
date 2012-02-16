@@ -8,7 +8,7 @@
  * http://www.opensource.org/licenses/GPL-2.0
  */
 (function($, nil, emptyString, undefined) {
-  $.cookie = function(key, value, options) {
+  var cookie = function(key, value, options) {
 
     var valueExists = value === nil || value === undefined;
 
@@ -46,6 +46,8 @@
     }
     return nil;
   };
+
+  $ ? $.cookie = cookie : window.cookie = cookie;
 })(
   window.jQuery || window.Zepto,
   null,
