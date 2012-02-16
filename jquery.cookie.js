@@ -47,7 +47,7 @@
     return nil;
   };
 })(
-  jQuery,
+  window.jQuery || window.Zepto,
   null,
   ''
 );
