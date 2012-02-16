@@ -10,13 +10,13 @@
 (function($, nil, emptyString, undefined) {
   $.cookie = function(key, value, options) {
 
+    var valueExists = value === nil || value === undefined;
+
     // key and at least value given, set cookie...
-    if (arguments.length && (!/Object/.test(Object.prototype.toString.call(value)) || value === nil || value === undefined)) {
+    if (arguments.length && (!/Object/.test(Object.prototype.toString.call(value)) || valueExists)) {
       options = options || {};
 
-      if (value === nil || value === undefined) {
-        options.expires = -1;
-      }
+      if (valueExists) options.expires = -1;
 
       if (typeof options.expires === 'number') {
         var days = options.expires, t = options.expires = new Date();
