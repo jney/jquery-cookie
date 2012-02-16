@@ -7,7 +7,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.opensource.org/licenses/GPL-2.0
  */
-(function($, nil, emptyString, undefined) {
+(function($, document, nil, emptyString, undefined) {
   var cookie = function(key, value, options) {
 
     var valueExists = value === nil || value === undefined;
@@ -23,7 +23,8 @@
         t.setDate(t.getDate() + days);
       }
 
-      value = String(value);
+      // to String
+      value = value + emptyString;
 
       return (
         document.cookie = [
@@ -50,6 +51,7 @@
   $ ? $.cookie = cookie : window.cookie = cookie;
 })(
   window.jQuery || window.Zepto,
+  document,
   null,
   ''
 );
